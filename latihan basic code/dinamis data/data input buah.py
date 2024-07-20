@@ -59,22 +59,40 @@ while True:
                             
     elif option == "b":
         print("menu:","\n")
-        for key,value in vegetables_dict:
-              print(key,"=",value,"\n")
-              print("pilih sayur:")
-              while True:
-                    menu=input("pilih menu:")
-                    if menu == "":
-                          continue
-                    elif menu not in vegetables_buy:
-                          print("menu tidak terdaftar!!")
-                    jumlah=int(input("jumlah(kg):"))
-                    
-                    
-                    
-                    
-                          
-              
+        for key,value in vegetables_dict.items():
+              print(key,"=",value)
+
+        while True:
+            menu=input("\n"+"pilih menu:")  #input menu       
+            if menu == "":
+                  continue
+            elif menu not in vegetables_dict:
+                  print("menu tidak terdaftar!!")
+                  continue
+
+            jumlah=int(input("jumlah(kg):")) #input jumlah
+            if jumlah == "":
+                  continue
+
+            select=input("next? (y/n)") #worker
+            if select == "y":
+                  vegetables_buy[menu]=jumlah
+            elif select == "n":
+                  print("purchased products:")
+                  sum_list=[]
+                  for (key,value) in vegetables_buy.items():
+                        sum1=value*jumlah#salah/////////
+                        sum_list.append(sum1)
+                        print(key,"\t",f"(quantity:{jumlah})")
+                        print(f'"\t"+"price= Rp{sum1}')
+
+                  print(f"TOTAL PURCHASES: Rp{sum(sum_list)}")
+            else:
+                  print("please chosee y/n only!!")
+
+
+            
+
             
                 
     else:
