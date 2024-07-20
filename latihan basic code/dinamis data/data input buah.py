@@ -1,5 +1,6 @@
 #menu beli buah,output=nama buah,kg dan total harga
-vegetables_dict={}
+vegetables_dict={"a":1,"b":2,"c":3,"d":4}
+vegetables_buy={}
 
 while True:
     print("     ---------menu---------"+"\n"+"\n"+
@@ -52,17 +53,28 @@ while True:
           if not vegetables_dict:
                       print("empty data !!!","\n")
           else:
-                print("vegetables:",end="")
-                for vegetables in vegetables_dict:
-                      if vegetables == vegetables_dict[-1]:
-                            print(vegetables,"\n")
-                      else:
-                            print(vegetables+",",end="")
+                print("vegetables:")
+                for key,value in vegetables_dict.items():
+                      print(key,"=",str(value))
                             
     elif option == "b":
         print("menu:","\n")
-        for i in vegetables_list:
-            print(i)
+        for key,value in vegetables_dict:
+              print(key,"=",value,"\n")
+              print("pilih sayur:")
+              while True:
+                    menu=input("pilih menu:")
+                    if menu == "":
+                          continue
+                    elif menu not in vegetables_buy:
+                          print("menu tidak terdaftar!!")
+                    jumlah=int(input("jumlah(kg):"))
+                    
+                    
+                    
+                    
+                          
+              
             
                 
     else:
