@@ -1,6 +1,7 @@
 #menu beli buah,output=nama buah,kg dan total harga
 vegetables_dict={"a":1,"b":2,"c":3,"d":4}
-vegetables_buy={}
+vegetables_buy_only={}
+price_item_dict={}
 
 while True:
     print("     ---------menu---------"+"\n"+"\n"+
@@ -73,20 +74,20 @@ while True:
             jumlah=int(input("jumlah(kg):")) #input jumlah
             if jumlah == "":#bug1
                   continue
-
+            vegetables_buy_only[menu]=jumlah
+            price_item=vegetables_dict.get(menu,0)*jumlah #total per item
+            price_item_dict[menu]=price_item #dict per item
+            
             select=input("next? (y/n)") #worker
             if select == "y":
-                  vegetables_buy[menu]=jumlah
+                  continue
             elif select == "n":
                   print("purchased products:")
-                  sum_total=[]
-                  for (vegetables,quantity) in vegetables_buy.items():
-                        sum1=quantity*vegetables_dict.values(vegetables)
-                        sum_total+=sum1
+                  for (vegetables,quantity) in vegetables_buy_only.items():
                         print(vegetables,"\t",f"(quantity:{quantity})")
-                        print(f'"\t"+"price= Rp{sum1}')
+                        print("\t"+" price= Rp"f'{price_item_dict.get(vegetables,0)}',"\n")
 
-                  print(f"TOTAL PURCHASES: Rp{sum(sum_total)}")
+                  print(f"TOTAL PURCHASES: Rp{sum(list(price_item_dict.values()))}")
             else:
                   print("please chosee y/n only!!")
 
