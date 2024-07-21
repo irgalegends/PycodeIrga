@@ -59,19 +59,19 @@ while True:
                             
     elif option == "b":
         print("menu:","\n")
-        for key,value in vegetables_dict.items():
-              print(key,"=",value)
+        for (vegetables,price) in vegetables_dict.items():
+              print(vegetables,"=",price)
 
         while True:
             menu=input("\n"+"pilih menu:")  #input menu       
-            if menu == "":
+            if menu == "":#bug1
                   continue
-            elif menu not in vegetables_dict:
+            elif menu not in vegetables_dict:#bug2
                   print("menu tidak terdaftar!!")
                   continue
 
             jumlah=int(input("jumlah(kg):")) #input jumlah
-            if jumlah == "":
+            if jumlah == "":#bug1
                   continue
 
             select=input("next? (y/n)") #worker
@@ -79,14 +79,14 @@ while True:
                   vegetables_buy[menu]=jumlah
             elif select == "n":
                   print("purchased products:")
-                  sum_list=[]
-                  for (key,value) in vegetables_buy.items():
-                        sum1=value*jumlah#salah/////////
-                        sum_list.append(sum1)
-                        print(key,"\t",f"(quantity:{jumlah})")
+                  sum_total=[]
+                  for (vegetables,quantity) in vegetables_buy.items():
+                        sum1=quantity*vegetables_dict.values(vegetables)
+                        sum_total+=sum1
+                        print(vegetables,"\t",f"(quantity:{quantity})")
                         print(f'"\t"+"price= Rp{sum1}')
 
-                  print(f"TOTAL PURCHASES: Rp{sum(sum_list)}")
+                  print(f"TOTAL PURCHASES: Rp{sum(sum_total)}")
             else:
                   print("please chosee y/n only!!")
 
