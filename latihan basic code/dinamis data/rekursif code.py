@@ -4,22 +4,34 @@
 #output 5,10,15,20,25,30
 data_number=[]
 
-while True:
-    print("pilih menu:","\n 1) Pola deret positif","\n 2) Pola Deret Negatif")
-    def number(x):
+def number(x):
         if x==1:
             return 5
         else:
             rekursif=number(x-1)+5
 
-for i in range(0,user+1):
-    data_number.append(number())
-x=0
+def minus(y):
+    if y==1:
+        return 1
+    else:
+        rekursif=minus(y-1)+1
 
+
+
+while True:
+    print("pilih menu:","\n 1) Pola deret positif(a)","\n 2) Pola Deret Negatif(b) \n")
+    user_input=input("your choice:")
+
+    if user_input=="a":
+         while True:
+              user_banyak_deret=int(input("banyak deret:"))
+              if user_banyak_deret=="":
+                   continue
+              else:
+                   break
+                   
+                   
+
+    
 
 #output 6,5,4,3,2,1
-#def minus(y):
-    #if y==1:
-        #return 1
-    #else:
-        #rekursif=minus(y-1)+1
