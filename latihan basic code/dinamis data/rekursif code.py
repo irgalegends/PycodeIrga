@@ -6,9 +6,9 @@ data_number=[]
 
 def number(x):
         if x==1:
-            return 5
+            return user_pola_deret
         else:
-            rekursif=number(x-1)+5
+            rekursif=number(x-1)+user_pola_deret
 
 def minus(y):
     if y==1:
@@ -31,6 +31,7 @@ while True:
               user_pola_deret=int(input("pola deret:"))
               if user_pola_deret=="":
                    continue
+              
               
 
               

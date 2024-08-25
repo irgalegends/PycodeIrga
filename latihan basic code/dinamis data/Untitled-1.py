@@ -1,4 +1,7 @@
-vegetables_dict={"a":1,"a":1,"b":2,"c":3,"d":4}
+def number(x):
+        if x==1:
+            return 5
+        else:
+            rekursif=number(x-1)+5
 
-for (x,y) in vegetables_dict.items():
-    print(x,y)
+print(number(1))
