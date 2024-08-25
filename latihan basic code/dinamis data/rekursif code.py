@@ -16,8 +16,6 @@ def minus(y):
     else:
         rekursif=minus(y-1)+1
 
-
-
 while True:
     print("pilih menu:","\n 1) Pola deret positif(a)","\n 2) Pola Deret Negatif(b) \n")
     user_input=input("your choice:")
@@ -27,8 +25,15 @@ while True:
               user_banyak_deret=int(input("banyak deret:"))
               if user_banyak_deret=="":
                    continue
-              else:
-                   break
+              user_nilai_awal=int(input("nilai awal:"))
+              if user_nilai_awal=="":
+                   continue
+              user_pola_deret=int(input("pola deret:"))
+              if user_pola_deret=="":
+                   continue
+              
+
+              
                    
                    
 
